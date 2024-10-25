@@ -72,6 +72,7 @@ jobs:
         if: env.INPUT_OVERRIDE_VERSION != ''
       - name: Commit Template Changes
         run: |
+          dotnet build Libraries/Libraries.sln -c Release
           git add "*.template"
           git commit -m "Update test app CloudFormation templates"
       # Update the changelog based on the change files
